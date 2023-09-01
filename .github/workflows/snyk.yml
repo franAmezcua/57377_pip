@@ -13,7 +13,7 @@ jobs:
         with:
           file: .
           #args: --scan=resource-changes --severity-threshold=low
-          #sarif: true
+          sarif: true
       #- name: Remove the sarif file
       #  run: rm snyk.sarif
       - name: Display all files in the root
