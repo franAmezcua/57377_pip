@@ -12,9 +12,6 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           file: .
-          #args: --scan=resource-changes --severity-threshold=low
-          sarif: true
-      #- name: Remove the sarif file
-      #  run: rm snyk.sarif
+          args: --sarif-file-output=snyk.sarif
       - name: Display all files in the root
         run: ls -al
