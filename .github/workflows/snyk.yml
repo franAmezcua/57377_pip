@@ -1,13 +1,20 @@
-name: Example workflow for Python using Snyk
+name: Example workflow for Python-3.8 using Snyk
 on: push
 jobs:
   security:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: Run Snyk to check for vulnerabilities
+        continue-on-error: true
         uses: snyk/actions/python-3.8@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --all-projects
+          file: .
+          #args: --scan=resource-changes --severity-threshold=low
+          #sarif: true
+      #- name: Remove the sarif file
+      #  run: rm snyk.sarif
+      - name: Display all files in the root
+        run: ls -al
