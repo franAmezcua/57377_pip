@@ -20,6 +20,8 @@ jobs:
           args: --sarif-file-output=snyk.sarif --all-projects --command=python3
       - name: Display all files in the root before uploading sarif
         run: ls -al
+      - name: cat sarif file
+        run: cat snyk.sarif
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
