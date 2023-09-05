@@ -17,7 +17,7 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           file: .
-          args: --sarif-file-output=snyk.sarif
+          args: --sarif-file-output=${{ github.workspace }}/snyk.sarif
       - name: Display all files in the root before uploading sarif
         run: ls -al
       - name: Upload result to GitHub Code Scanning
