@@ -1,3 +1,8 @@
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+  
 name: Example workflow for Python-3.8 using Snyk
 on: push
 jobs:
