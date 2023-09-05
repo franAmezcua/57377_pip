@@ -2,7 +2,7 @@ permissions:
   actions: read
   contents: read
   security-events: write
-  
+
 name: Example workflow for Python-3.8 using Snyk
 on: push
 jobs:
@@ -18,6 +18,8 @@ jobs:
         with:
           file: .
           args: --sarif-file-output=snyk.sarif
+      - name: Display all files in the root before uploading sarif
+        run: ls -al
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v2
         with:
